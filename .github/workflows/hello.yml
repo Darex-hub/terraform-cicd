@@ -1,0 +1,23 @@
+name: Hello World Workflow
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Say Hello
+        run: echo "Hello, World!"
+
+      - name: Show current date and time
+        run: date
+
+      - name: Show current directory
+        run: pwd
+
+      - name: List files in current directory
+        run: ls -la
