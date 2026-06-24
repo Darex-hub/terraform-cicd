@@ -1,8 +1,8 @@
-resource "aws_s3_bucket" "darex" {
+resource "aws_s3_bucket" "demo-bucket" {
   bucket = var.bucket_name
 
   tags = {
     Name        = var.bucket_name
-    Environment = "Dev"
+    Environment = var.environment
   }
 }
