@@ -1,4 +1,4 @@
-name: "Terraform Manual Operations"
+name: Terraform Manual Operations
 
 on:
   workflow_dispatch:

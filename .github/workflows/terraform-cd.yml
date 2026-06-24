@@ -1,8 +1,9 @@
-name: "Terraform CD"
+name: Terraform CD
 
 on:
   push:
-    branches: [ darex ]
+    branches:
+        - darex
   workflow_dispatch:
 
 jobs:
