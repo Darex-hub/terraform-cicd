@@ -7,10 +7,6 @@ on:
         description: "Choose apply or destroy"
         required: true
         default: "apply"
-        type: choice
-        options:
-          - apply
-          - destroy
 
 jobs:
   apply:
@@ -20,12 +16,11 @@ jobs:
     defaults:
       run:
         working-directory: terraform
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Terraform
+      - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
 
       - name: Configure AWS credentials
@@ -36,15 +31,15 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Terraform Init
-        run: terraform init -input=false
+        run: terraform init
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve 
+        run: terraform apply -auto-approve
 
   destroy:
     if: ${{ github.event.inputs.action == 'destroy' }}
     runs-on: ubuntu-latest
-    environment: dev
+    environment: prod
     defaults:
       run:
         working-directory: terraform
@@ -52,7 +47,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Terraform
+      - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
 
       - name: Configure AWS credentials
@@ -63,7 +58,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Terraform Init
-        run: terraform init -input=false
+        run: terraform init
 
       - name: Terraform Destroy
-        run: terraform destroy -auto-approve -input=false
+        run: terraform destroy -auto-approve
