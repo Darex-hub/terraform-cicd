@@ -6,6 +6,9 @@
 .terraform/
 .terraform.lock.hcl
 
+# Contains your real secrets and values
+terraform.tfvars
+
 # Crash logs
 crash.log
 

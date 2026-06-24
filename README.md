@@ -71,4 +71,5 @@ CD workflow: Merge changes into master or trigger the workflow manually. The wor
 Manual workflow: Trigger manually from the Actions tab. Choose apply or destroy. Destroy requires approval in the protected environment.
 
 Safe Destroy:
+
 Destroy operations are restricted to manual execution only. They require environment approval to prevent accidental deletion of infrastructure. This ensures that destructive actions are deliberate and controlled.
